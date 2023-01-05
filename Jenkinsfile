@@ -1,9 +1,10 @@
 pipeline {
-    agent {
-        docker {image 'python:3.8-slim-buster'}
-    }
+    agent any
     stages {
         stage('Building'){
+            agent {
+                docker {image 'python:3.8-slim-buster'}
+            }
             environment {
                 HOME="."
             }
