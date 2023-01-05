@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Building'){
             steps{
-                sh 'pip install -r requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
         stage('Testing'){
             steps{
-                sh 'python -m unittest'
+                bat 'python -m unittest'
             }
         }
     }
