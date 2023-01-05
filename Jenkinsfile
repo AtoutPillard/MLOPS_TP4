@@ -1,9 +1,6 @@
 pipeline {
     agent {
-        docker {
-            alwaysPull true
-            image 'python:3.8-slim-buster'
-        }
+        docker {image 'python:3.8-slim-buster'}
     }
     stages {
         stage('Building'){
