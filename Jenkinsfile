@@ -2,6 +2,11 @@ pipeline {
     agent any
     stages {
         stage('Building'){
+            agent {
+                docker {
+                    image 'python:3-alpine'
+                }
+            }
             steps{
                 bat 'pip install --target ${env.WORKSPACE} -r requirements.txt'
             }
