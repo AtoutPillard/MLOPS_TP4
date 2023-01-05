@@ -2,6 +2,9 @@ pipeline {
     agent any
     stages {
         stage('Building'){
+            environment {
+                HOME="."
+            }
             agent {
                 docker {
                     alwaysPull true
@@ -9,7 +12,7 @@ pipeline {
                 }
             }
             steps{
-                bat 'pip install --target ${env.WORKSPACE} -r requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
         stage('Testing'){
