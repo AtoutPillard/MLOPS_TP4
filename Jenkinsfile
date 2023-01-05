@@ -6,12 +6,12 @@ pipeline {
                 HOME="."
             }
             steps{
-                bat 'pip install -r requirements.txt'
+                bat 'pip3 install -r requirements.txt'
             }
         }
         stage('Testing'){
             steps{
-                bat 'python -m unittest'
+                bat 'python3 -m unittest'
             }
         }
         stage('Deploying'){
