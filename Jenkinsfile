@@ -4,7 +4,8 @@ pipeline {
         stage('Building'){
             agent {
                 docker {
-                    image 'python:3-alpine'
+                    alwaysPull true
+                    image 'python:3.8-slim-buster'
                 }
             }
             steps{
