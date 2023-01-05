@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker {image 'python:3.8-slim-buster'}
+    }
     stages {
         stage('Building'){
             environment {
@@ -11,7 +13,7 @@ pipeline {
         }
         stage('Testing'){
             steps{
-                bat 'python3 -m unittest'
+                bat 'python -m unittest'
             }
         }
         stage('Deploying'){
