@@ -11,5 +11,11 @@ pipeline {
                 bat 'python -m unittest'
             }
         }
+        stage('Deploying'){
+            steps{
+                bat 'docker build -t flaskimage .'
+                bat 'docker run -d -p 8000:8000 flaskimage'
+            }
+        }
     }
 }
