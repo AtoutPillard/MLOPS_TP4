@@ -3,9 +3,7 @@ pipeline {
     stages {
         stage('Building'){
             steps{
-                withEnv(["HOME=${env.WORKSPACE}"]){
-                    bat 'pip install -r requirements.txt'
-                }
+                bat 'pip install --target ${env.WORKSPACE} -r requirements.txt'
             }
         }
         stage('Testing'){
