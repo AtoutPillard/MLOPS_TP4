@@ -1,15 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            alwaysPull true
+            image 'python:3.8-slim-buster'
+        }
+    }
     stages {
         stage('Building'){
             environment {
                 HOME="."
-            }
-            agent {
-                docker {
-                    alwaysPull true
-                    image 'python:3.8-slim-buster'
-                }
             }
             steps{
                 bat 'pip install -r requirements.txt'
